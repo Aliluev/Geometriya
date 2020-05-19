@@ -10,16 +10,16 @@ protected:
   T** massiv;
 public:
   Krug();
-  Krug(int _radius, T stil);//нужного радиуса с заданием того как будет выглядить круг
+  Krug(int _radius, T stil);//РЅСѓР¶РЅРѕРіРѕ СЂР°РґРёСѓСЃР° СЃ Р·Р°РґР°РЅРёРµРј С‚РѕРіРѕ РєР°Рє Р±СѓРґРµС‚ РІС‹РіР»СЏРґРёС‚СЊ РєСЂСѓРі
   Krug(const Krug& krug);
   ~Krug();
   int Get_Radius();
-  T Get_Stil();//можно получить то чем заполняется круг
+  T Get_Stil();//РјРѕР¶РЅРѕ РїРѕР»СѓС‡РёС‚СЊ С‚Рѕ С‡РµРј Р·Р°РїРѕР»РЅСЏРµС‚СЃСЏ РєСЂСѓРі
   void Set_Radius(int _radius);
   float Ploshad() override;
   ostream& print(ostream& os) override;
   bool operator ==(const Krug& other);
-  void Function(T _stil);//для выделения памяти и установки нового массива(новой размерности)
+  void Function(T _stil);//РґР»СЏ РІС‹РґРµР»РµРЅРёСЏ РїР°РјСЏС‚Рё Рё СѓСЃС‚Р°РЅРѕРІРєРё РЅРѕРІРѕРіРѕ РјР°СЃСЃРёРІР°(РЅРѕРІРѕР№ СЂР°Р·РјРµСЂРЅРѕСЃС‚Рё)
 };
 
 template<class T>
@@ -29,7 +29,7 @@ inline Krug<T>::Krug()
   this->Function('*');
 }
 template<class T>
-void Krug<T>::Function(T _stil)//для выделения памяти и установки нового массива(новой размерности)
+void Krug<T>::Function(T _stil)//РґР»СЏ РІС‹РґРµР»РµРЅРёСЏ РїР°РјСЏС‚Рё Рё СѓСЃС‚Р°РЅРѕРІРєРё РЅРѕРІРѕРіРѕ РјР°СЃСЃРёРІР°(РЅРѕРІРѕР№ СЂР°Р·РјРµСЂРЅРѕСЃС‚Рё)
 {
   massiv = new T* [2 * radius - 1];
   for (int i = 0; i < 2 * radius - 1; i++)

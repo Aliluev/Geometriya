@@ -23,7 +23,7 @@ public:
   ostream& print(ostream& os) override;
 
   bool operator ==(const Cube& other);
-  void Function(T Stil); //установка памяти и запалнение массива внутри куба
+  void Function(T Stil); //СѓСЃС‚Р°РЅРѕРІРєР° РїР°РјСЏС‚Рё Рё Р·Р°РїР°Р»РЅРµРЅРёРµ РјР°СЃСЃРёРІР° РІРЅСѓС‚СЂРё РєСѓР±Р°
 };
 
 template<class T>

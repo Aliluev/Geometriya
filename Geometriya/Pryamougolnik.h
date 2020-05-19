@@ -16,13 +16,13 @@ public:
   ~Pryamougolnik();
   int Get_Dlina();//
   int Get_Shirina();
-  T Get_Still();//получить то чем заполнем прямоугольник(какими данными)
+  T Get_Still();//РїРѕР»СѓС‡РёС‚СЊ С‚Рѕ С‡РµРј Р·Р°РїРѕР»РЅРµРј РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРє(РєР°РєРёРјРё РґР°РЅРЅС‹РјРё)
   void Set_Razmer(int _dlina,int _shirina);
-  void Set_Stil(T stil);//поменять то чем заполнен прямоугольник
+  void Set_Stil(T stil);//РїРѕРјРµРЅСЏС‚СЊ С‚Рѕ С‡РµРј Р·Р°РїРѕР»РЅРµРЅ РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРє
   float Ploshad() override;
   ostream& print(ostream& os) override;
   bool operator ==(const Pryamougolnik& other);
-  void Function(T stil);//установка памяти и запалнение массива внутри квадрата
+  void Function(T stil);//СѓСЃС‚Р°РЅРѕРІРєР° РїР°РјСЏС‚Рё Рё Р·Р°РїР°Р»РЅРµРЅРёРµ РјР°СЃСЃРёРІР° РІРЅСѓС‚СЂРё РєРІР°РґСЂР°С‚Р°
 };
 
 template<class T>
