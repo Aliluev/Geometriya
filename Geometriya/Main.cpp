@@ -38,9 +38,12 @@ int main()
   cout << "-----------Memory----------" << "\n";
   Container Memory;
   Memory.Add(A);
+  Memory.Add(C);
+  Memory.Add(D);
+  Memory.Add(AB);
+  Memory.Add(ABC);
   Memory.Add(ABCD);
-  //cout<<Memory[0];
-  //cout << Memory.return_object(A);
+  Memory.Add(ABCDE);
   cout << Memory;
   return 0;
 }
