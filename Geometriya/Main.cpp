@@ -45,5 +45,7 @@ int main()
   Memory.Add(ABCD);
   Memory.Add(ABCDE);
   cout << Memory;
+  cout << "cout 3 object" << "\n";
+  Memory.out_object(3);
   return 0;
 }

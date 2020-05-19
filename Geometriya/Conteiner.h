@@ -20,10 +20,11 @@ public:
   ~Container();
   Shablon_Objects* operator[](const int i);
   template <class T>
-  void Add(T& other);
+  void Add(T& other);//добавление нового объекта
   template <class T>
-  void Delete(T& other);
-  friend ostream& operator<<(ostream& out, Container& other);
+  void Delete(T& other);//удалить существующий объект
+  void out_object(int i);//отобразить выбранный объект
+  friend ostream& operator<<(ostream& out, Container& other);//отобразить все имеющиеся объекты
 };
 
 Container::Container()
@@ -46,7 +47,12 @@ Shablon_Objects* Container::operator[](const int i)
   return massiv[i];
 }
 
-ostream& operator<<(ostream& out, Container& other)
+void Container::out_object(int i)//отобразить выбранный объект
+{
+  cout << *(massiv[i]);
+}
+
+ostream& operator<<(ostream& out, Container& other)//отобразить все имеющиеся объекты
 {
   for (int i = 0; i < other.size; i++)
   {
@@ -58,7 +64,7 @@ ostream& operator<<(ostream& out, Container& other)
 
 
 template<class T>
-inline void Container::Add(T& other)
+inline void Container::Add(T& other)//добавление нового объекта
 {
   Shablon_Objects** objects = new Shablon_Objects * [size];
   for (int i = 0; i < size; i++)
@@ -79,7 +85,7 @@ inline void Container::Add(T& other)
 }
 
 template<class T>
-inline void Container::Delete(T& other)
+inline void Container::Delete(T& other)//удалить существующий объект
 {
   Shablon_Objects** objects = new Shablon_Objects * [size];
   int j = 0;
