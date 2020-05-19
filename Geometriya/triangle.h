@@ -21,6 +21,7 @@ public:
   float Ploshad() override;
   ostream& print(ostream& os) override;
   bool operator ==(const Triangle& other);
+  Triangle<T> operator=(const Triangle<T>& other);
   void Function(T stil);
 };
 
@@ -113,6 +114,28 @@ inline bool Triangle<T>::operator==(const Triangle& other)
   if (height == other.height && massiv[0][0] == other.massiv[0][0])
     return true;
   return false;
+}
+
+template<class T>
+inline Triangle<T> Triangle<T>::operator=(const Triangle<T>& other)
+{
+  if (*this == other)
+  {
+    return *this;
+  }
+  if (massiv != 0)
+  {
+    for (int i = 0; i < height; i++)
+    {
+      massiv[i] = 0;
+      delete[] massiv[i];
+    }
+    massiv = 0;
+    delete[] massiv;
+  }
+  height = other.height;
+  this->Function(other.GetStil());
+  return *this;
 }
 
 template<class T>

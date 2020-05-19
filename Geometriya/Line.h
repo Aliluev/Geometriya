@@ -21,6 +21,7 @@ public:
   float Ploshad() override;
   ostream& print(ostream& os) override;
   bool operator ==(const Line& other);
+  Line<T> operator=(const Line<T>& other);
 };
 
 template<class T>
@@ -118,6 +119,24 @@ inline void Line<T>::Set_Massiv(int _razmer,T* _massiv)
 }
 
 template<class T>
+Line<T> Line<T>::operator=(const Line<T>& other)
+{
+  if (*this == other)
+  {
+    return *this;
+  }
+  massiv = 0;
+  delete[] massiv;
+  razmer = other.razmer;
+  massiv = new T[razmer];
+  for (int i = 0; i < razmer; i++)
+  {
+    massiv[i] = other.massiv[i];
+  }
+  return *this;
+}
+
+template<class T>
 inline float Line<T>::Ploshad()
 {
   return 0.0f;
@@ -137,7 +156,7 @@ inline ostream& Line<T>::print(ostream& os)
 template<class T>
 inline bool Line<T>::operator==(const Line& other)
 {
-  int kol;
+  int kol=0;
   if (razmer = other.razmer)
   {
     for (int i = 0; i < razmer; i++)

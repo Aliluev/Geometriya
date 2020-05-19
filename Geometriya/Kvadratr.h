@@ -20,6 +20,7 @@ public:
   float Ploshad() override;
   ostream& print(ostream& os) override;
   bool operator ==(const Kvadrat& other);
+  Kvadrat<T> operator=(const Kvadrat<T>& other);
   void Function(T stil);//установка памяти и запалнение массива внутри квадрата
 };
 
@@ -131,6 +132,28 @@ inline bool Kvadrat<T>::operator==(const Kvadrat& other)
     return true;
   }
   return false;
+}
+
+template<class T>
+inline Kvadrat<T> Kvadrat<T>::operator=(const Kvadrat<T>& other)
+{
+  if (*this == other)
+  {
+    return *this;
+  }
+  if (massiv != 0)
+  {
+    for (int i = 0; i < storona; i++)
+    {
+      massiv[i] = 0;
+      delete[] massiv[i];
+    }
+    massiv = 0;
+    delete[] massiv;
+  }
+  storona = other.storona;
+  this->Function(other.Get_Still());
+  return *this;
 }
 
 template<class T>

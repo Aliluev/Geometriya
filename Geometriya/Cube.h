@@ -23,6 +23,7 @@ public:
   ostream& print(ostream& os) override;
 
   bool operator ==(const Cube& other);
+  Cube<T> operator=(const Cube<T>& other);
   void Function(T Stil); //установка памяти и запалнение массива внутри куба
 };
 
@@ -127,6 +128,34 @@ inline bool Cube<T>::operator==(const Cube& other)
   if (storona == other.storona && massiv[0][0][0] == other.massiv[0][0][0])
     return true;
   return false;
+}
+
+template<class T>
+inline Cube<T> Cube<T>::operator=(const Cube<T>& other)
+{
+  if (this == other)
+  {
+    return *this;
+  }
+  if (massiv != 0)
+  {
+    for (int i = 0; i < storona; i++)
+      for (int j = 0; j < storona; j++)
+      {
+        massiv[i][j] = 0;
+        delete[] massiv[i][j];
+      }
+    for (int i = 0; i < storona; i++)
+    {
+      massiv[i] = 0;
+      delete[] massiv[i];
+    }
+    massiv = 0;
+    delete[] massiv;
+  }
+  storona = other.storona;
+  this->Function(other.GetStil());
+  return *this;
 }
 
 template<class T>

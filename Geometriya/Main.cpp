@@ -17,6 +17,10 @@ int main()
   cout << A << "\n";
   cout << "Object Line" << "\n";
   Line<char> C(15, '-');
+  cout << C << "\n";
+  cout << "Object Line" << "\n";
+  Line<char> EE(10, '*');
+  C = EE;
   cout << C<<"\n";
   cout << "Object Krug" << "\n";
   Krug<int> D(5, 2);

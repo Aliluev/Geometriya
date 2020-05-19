@@ -17,7 +17,7 @@ public:
   float Ploshad() override;
   ostream& print(ostream& os) override;
   bool operator ==(const Point& other);
-
+  Point<T> operator=(const Point<T>& other);
 };
 template<class T>
 Point<T>::Point()
@@ -62,6 +62,17 @@ bool Point<T>::operator ==(const Point& other)
     return true;
   }
   else false;
+}
+
+template<class T>
+Point<T> Point<T>::operator=(const Point<T>& other)//в абстрактном понимание, точка-это любой введённый тип данных соответствующий одному объекту
+{
+  if (*this == other)
+  {
+    return *this;
+  }
+  tochka = other.tochka;
+  return *this;
 }
 template<class T>
 ostream& Point<T>::print(ostream& os)

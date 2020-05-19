@@ -19,6 +19,7 @@ public:
   float Ploshad() override;
   ostream& print(ostream& os) override;
   bool operator ==(const Krug& other);
+  Krug<T> operator=(const Krug<T>& other);
   void Function(T _stil);//для выделения памяти и установки нового массива(новой размерности)
 };
 
@@ -139,4 +140,26 @@ inline bool Krug<T>::operator==(const Krug& other)
     }
   }
   return false;
+}
+
+template<class T>
+inline Krug<T> Krug<T>::operator=(const Krug<T>& other)
+{
+  if (*this == other)
+  {
+    return *this;
+  }
+  if (massiv != 0)
+  {
+    for (int i = 0; i < 2 * radius - 1; i++)
+    {
+      massiv[i] = 0;
+      delete[] massiv[i];
+    }
+    massiv = 0;
+    delete[] massiv;
+  }
+  radius = other.radius;
+  this->Function(other.Get_Stil());
+  return *this;
 }

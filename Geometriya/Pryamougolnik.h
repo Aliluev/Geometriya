@@ -22,6 +22,7 @@ public:
   float Ploshad() override;
   ostream& print(ostream& os) override;
   bool operator ==(const Pryamougolnik& other);
+  Pryamougolnik<T> operator=(const Pryamougolnik<T>& other);
   void Function(T stil);//установка памяти и запалнение массива внутри квадрата
 };
 
@@ -142,6 +143,29 @@ inline bool Pryamougolnik<T>::operator==(const Pryamougolnik& other)
   if (dlina == other.dlina && shirina == other.shirina && massiv[0][0] == other.massiv[0][0])
     return true;
   return false;
+}
+
+template<class T>
+inline Pryamougolnik<T> Pryamougolnik<T>::operator=(const Pryamougolnik<T>& other)
+{
+  if (*this == other)
+  {
+    return *this;
+  }
+  if (massiv != 0)
+  {
+    for (int i = 0; i < shirina; i++)
+    {
+      massiv[i] = 0;
+      delete[] massiv[i];
+    }
+    massiv = 0;
+    delete[] massiv;
+  }
+  dlina = other.dlina;
+  shirina = other.shirina;
+  this->Function(other.Get_Still());
+  return *this;
 }
 
 template<class T>
