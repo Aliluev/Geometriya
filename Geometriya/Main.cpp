@@ -47,5 +47,10 @@ int main()
   cout << Memory;
   cout << "cout 3 object" << "\n";
   Memory.out_object(3);
+  cout << "Delete object 1,3" << "\n";
+  cout << "--------Memory---------" << "\n";
+  Memory.Delete(C);
+  Memory.Delete(AB);
+  cout << Memory;
   return 0;
 }
